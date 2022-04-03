@@ -33,15 +33,20 @@ class _RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(itemBuilder: (context, i) {
-      if (i.isOdd) return const Divider();
-      final index = i ~/ 2;
-      if (index >= _suggestions.length) {
-        _suggestions.addAll(generateWordPairs().take(10));
-      }
-      return ListTile(
-        title: Text(_suggestions[index].asPascalCase,style: _biggerFont,),
-      );
-    });
+    return _buildSuggestions();
   }
+
+  Widget _buildSuggestions() => ListView.builder(itemBuilder: (context, i) {
+        if (i.isOdd) return const Divider();
+        final index = i ~/ 2;
+        if (index >= _suggestions.length) {
+          _suggestions.addAll(generateWordPairs().take(10));
+        }
+        return ListTile(
+          title: Text(
+            _suggestions[index].asPascalCase,
+            style: _biggerFont,
+          ),
+        );
+      });
 }
