@@ -29,6 +29,9 @@ class _RandomWordsState extends State<RandomWords> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Namer"),
+        actions: [
+          IconButton(onPressed: _pushSaved, icon:const Icon(Icons.list))
+        ],
       ),
       body: _buildSuggestions(),
     );
@@ -64,5 +67,21 @@ class _RandomWordsState extends State<RandomWords> {
         });
       },
     );
+  }
+
+  void _pushSaved() {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context){
+
+      final tiles=_saved.map((e){
+       return ListTile(title: Text(e.asPascalCase),);
+      });
+
+      final divideTiles=ListTile.divideTiles(context:context,tiles: tiles).toList();
+
+      return Scaffold(
+        appBar: AppBar(title:const Text("Saved Names"),),
+        body: ListView(children: divideTiles,),
+      );
+    }));
   }
 }
