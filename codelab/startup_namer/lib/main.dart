@@ -8,15 +8,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final wordPair = WordPair.random();
-    return MaterialApp(
-      title: "Flutter",
-      home: Scaffold(
-          appBar: AppBar(
-            title: const Text("Flutter"),
-          ),
-          body: const RandomWords()),
-    );
+    return const MaterialApp(title: "Flutter", home: RandomWords());
   }
 }
 
@@ -33,7 +25,12 @@ class _RandomWordsState extends State<RandomWords> {
 
   @override
   Widget build(BuildContext context) {
-    return _buildSuggestions();
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Flutter"),
+      ),
+      body: _buildSuggestions(),
+    );
   }
 
   Widget _buildSuggestions() => ListView.builder(itemBuilder: (context, i) {
