@@ -8,7 +8,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Flutter", home: RandomWords());
+    return  MaterialApp(
+        title: "Flutter",
+        theme: ThemeData(appBarTheme:const AppBarTheme(
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black
+        )),
+        home:const RandomWords());
   }
 }
 
@@ -30,7 +36,7 @@ class _RandomWordsState extends State<RandomWords> {
       appBar: AppBar(
         title: const Text("Namer"),
         actions: [
-          IconButton(onPressed: _pushSaved, icon:const Icon(Icons.list))
+          IconButton(onPressed: _pushSaved, icon: const Icon(Icons.list))
         ],
       ),
       body: _buildSuggestions(),
@@ -57,11 +63,11 @@ class _RandomWordsState extends State<RandomWords> {
         alreadySaved ? Icons.favorite : Icons.favorite_border,
         color: alreadySaved ? Colors.red : null,
       ),
-      onTap: (){
+      onTap: () {
         setState(() {
-          if(alreadySaved){
+          if (alreadySaved) {
             _saved.remove(pair);
-          } else{
+          } else {
             _saved.add(pair);
           }
         });
@@ -70,17 +76,23 @@ class _RandomWordsState extends State<RandomWords> {
   }
 
   void _pushSaved() {
-    Navigator.of(context).push(MaterialPageRoute(builder: (context){
-
-      final tiles=_saved.map((e){
-       return ListTile(title: Text(e.asPascalCase),);
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+      final tiles = _saved.map((e) {
+        return ListTile(
+          title: Text(e.asPascalCase),
+        );
       });
 
-      final divideTiles=ListTile.divideTiles(context:context,tiles: tiles).toList();
+      final divideTiles =
+          ListTile.divideTiles(context: context, tiles: tiles).toList();
 
       return Scaffold(
-        appBar: AppBar(title:const Text("Saved Names"),),
-        body: ListView(children: divideTiles,),
+        appBar: AppBar(
+          title: const Text("Saved Names"),
+        ),
+        body: ListView(
+          children: divideTiles,
+        ),
       );
     }));
   }
