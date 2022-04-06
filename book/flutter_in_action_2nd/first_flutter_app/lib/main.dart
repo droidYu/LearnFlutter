@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/_2/route_manage.dart';
 import 'package:first_flutter_app/_2/state_manage.dart';
 import 'package:first_flutter_app/_2/widget.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +11,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Flutter", home: StateManageRoute());
+    return const MaterialApp(title: "Flutter", home: FirstRoute());
   }
 }
