@@ -62,7 +62,11 @@ class TextPage extends StatelessWidget {
                     style: TextStyle(inherit: false, color: Colors.grey),
                   ),
                 ],
-              ))
+              )),
+          const Text(
+            'Use the font for this text',
+            style: TextStyle(fontFamily: 'GrapeNuts'),
+          )
         ],
       ),
     );
