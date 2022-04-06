@@ -1,8 +1,6 @@
-import 'package:first_flutter_app/_2/context.dart';
-import 'package:first_flutter_app/_2/state.dart';
+import 'package:first_flutter_app/_2/widget.dart';
 import 'package:flutter/material.dart';
 
-import '_2/cupertino.dart';
 
 void main() => runApp(const MyApp());
 
