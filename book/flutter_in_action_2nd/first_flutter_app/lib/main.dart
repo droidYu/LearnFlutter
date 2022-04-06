@@ -1,3 +1,4 @@
+import 'package:first_flutter_app/context.dart';
 import 'package:first_flutter_app/stateless_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -8,6 +9,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: "Flutter", home: StatelessWidgetPage());
+    return const MaterialApp(title: "Flutter", home: ContextPage());
   }
 }
