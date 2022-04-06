@@ -15,7 +15,7 @@ class FirstRoute extends StatelessWidget {
           children: [
             ElevatedButton(
               onPressed: () async {
-               var  result = await Navigator.push(context,
+                var result = await Navigator.push(context,
                     MaterialPageRoute(builder: (context) {
                   return SecondRoute(
                     value: 'hello',
@@ -26,6 +26,12 @@ class FirstRoute extends StatelessWidget {
                 }
               },
               child: const Text('To Second'),
+            ),
+            ElevatedButton(
+              onPressed: () async {
+                Navigator.pushNamed(context, 'new_page');
+              },
+              child: const Text('To NewRoute'),
             ),
           ],
         ),
@@ -49,11 +55,28 @@ class SecondRoute extends StatelessWidget {
         child: Column(
           children: [
             Text('This is second and value is :$value'),
-            ElevatedButton(onPressed: () {
-              Navigator.pop(context,"world");
-            }, child: const Text('Back'))
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, "world");
+                },
+                child: const Text('Back'))
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class NewRoute extends StatelessWidget {
+  const NewRoute({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('NewRoute'),),
+      body: Center(
+        child: Text('This is new route'),
       ),
     );
   }
