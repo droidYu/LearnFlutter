@@ -11,7 +11,7 @@ class StateManageRoute extends StatelessWidget {
       ),
       body: Center(
         child: Column(
-          children: const [TapboxA(), ParentWidgetB()],
+          children: const [TapboxA(), ParentWidgetB(), ParentWidgetC()],
         ),
       ),
     );
@@ -115,6 +115,90 @@ class TapboxB extends StatelessWidget {
         height: 150,
         decoration: BoxDecoration(
             color: active ? Colors.lightGreen[700] : Colors.grey[600]),
+      ),
+    );
+  }
+}
+
+//---------------------------- ParentWidgetC ----------------------------
+class ParentWidgetC extends StatefulWidget {
+  const ParentWidgetC({Key? key}) : super(key: key);
+
+  @override
+  State<ParentWidgetC> createState() => _ParentWidgetCState();
+}
+
+class _ParentWidgetCState extends State<ParentWidgetC> {
+  bool _active = false;
+
+  void handleTapboxChanged(bool newValue) {
+    setState(() {
+      _active = newValue;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return TapboxC(active: _active, onChanged: handleTapboxChanged);
+  }
+}
+
+//----------------------------- TapboxC ------------------------------
+
+class TapboxC extends StatefulWidget {
+  const TapboxC({Key? key, bool this.active = false, required this.onChanged})
+      : super(key: key);
+
+  final active;
+  final ValueChanged<bool> onChanged;
+
+  @override
+  State<TapboxC> createState() => _TapboxCState();
+}
+
+class _TapboxCState extends State<TapboxC> {
+  bool _highlight = false;
+
+  void _handleTapDown(TapDownDetails details) {
+    setState(() {
+      _highlight = true;
+    });
+  }
+
+  void _handleTapUp(TapUpDetails details) {
+    setState(() {
+      _highlight = false;
+    });
+  }
+
+  void _handleTapCancel() {
+    setState(() {
+      _highlight = false;
+    });
+  }
+
+  void _handleTap() {
+    widget.onChanged(!widget.active);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: _handleTapDown,
+      onTapUp: _handleTapUp,
+      onTap: _handleTap,
+      onTapCancel: _handleTapCancel,
+      child: Container(
+        child: Center(
+          child: Text(widget.active ? 'Active' : 'Inactive',
+            style: const TextStyle(fontSize: 32, color: Colors.white),),
+        ),
+        width: 150,
+        height: 150,
+        decoration: BoxDecoration(
+          color: widget.active?Colors.lightGreen[700]:Colors.grey[600],
+          border: _highlight?Border.all(color: Colors.teal,width: 10):null
+        ),
       ),
     );
   }
