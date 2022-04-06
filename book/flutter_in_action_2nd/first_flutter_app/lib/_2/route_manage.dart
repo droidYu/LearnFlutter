@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class FirstRoute extends StatelessWidget {
@@ -10,13 +11,23 @@ class FirstRoute extends StatelessWidget {
         title: const Text('FirstRoute'),
       ),
       body: Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) {
-              return const SecondRoute();
-            }));
-          },
-          child: const Text('To Second'),
+        child: Column(
+          children: [
+            ElevatedButton(
+              onPressed: () async {
+               var  result = await Navigator.push(context,
+                    MaterialPageRoute(builder: (context) {
+                  return SecondRoute(
+                    value: 'hello',
+                  );
+                }));
+                if (kDebugMode) {
+                  print('返回值：$result');
+                }
+              },
+              child: const Text('To Second'),
+            ),
+          ],
         ),
       ),
     );
@@ -24,7 +35,9 @@ class FirstRoute extends StatelessWidget {
 }
 
 class SecondRoute extends StatelessWidget {
-  const SecondRoute({Key? key}) : super(key: key);
+  SecondRoute({Key? key, required this.value}) : super(key: key);
+
+  String value = '';
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +45,15 @@ class SecondRoute extends StatelessWidget {
       appBar: AppBar(
         title: const Text('SecondRoute'),
       ),
-      body: const Center(
-        child: Text('This is  second'),
+      body: Center(
+        child: Column(
+          children: [
+            Text('This is second and value is :$value'),
+            ElevatedButton(onPressed: () {
+              Navigator.pop(context,"world");
+            }, child: const Text('Back'))
+          ],
+        ),
       ),
     );
   }
