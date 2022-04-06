@@ -29,7 +29,7 @@ class FirstRoute extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                Navigator.pushNamed(context, 'new_page');
+                Navigator.pushNamed(context, 'new_page',arguments: 'hi');
               },
               child: const Text('To NewRoute'),
             ),
@@ -76,7 +76,7 @@ class NewRoute extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text('NewRoute'),),
       body: Center(
-        child: Text('This is new route'),
+        child: Text('This is new route and value is :${ModalRoute.of(context)?.settings.arguments}'),
       ),
     );
   }
