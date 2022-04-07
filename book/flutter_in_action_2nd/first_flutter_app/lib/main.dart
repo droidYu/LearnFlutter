@@ -1,5 +1,5 @@
 import 'package:first_flutter_app/_2/route_manage.dart';
-import 'package:first_flutter_app/_3/text.dart';
+import 'package:first_flutter_app/_3/button.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -14,8 +14,8 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           'new_page': (context) => NewRoute(),
-          '/':(context)=>TextPage()
-        },
+          '/': (context) => ButtonPage()
+      },
         );
   }
 }
