@@ -104,6 +104,30 @@ class ImageAndIconPage extends StatelessWidget {
                       ],
                     );
                   }).toList(),
+                ),
+                const Text(
+                  '\ue03e \ue237 \ue287',
+                  style: TextStyle(
+                      fontFamily: 'MaterialIcons',
+                      fontSize: 24,
+                      color: Colors.green),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Icon(
+                      Icons.accessible,
+                      color: Colors.red,
+                    ),
+                    Icon(
+                      Icons.error,
+                      color: Colors.red,
+                    ),
+                    Icon(
+                      Icons.fingerprint,
+                      color: Colors.red,
+                    ),
+                  ],
                 )
               ],
             ),
