@@ -1,5 +1,5 @@
 import 'package:first_flutter_app/_2/route_manage.dart';
-import 'package:first_flutter_app/_3/button.dart';
+import 'package:first_flutter_app/_3/image_and_icon.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
         initialRoute: '/',
         routes: {
           'new_page': (context) => NewRoute(),
-          '/': (context) => ButtonPage()
+          '/': (context) => ImageAndIconPage()
       },
         );
   }
