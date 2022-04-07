@@ -81,7 +81,54 @@ class _InputAndFormPageState extends State<InputAndFormPage> {
                               },
                               child: const Text('hide keyboard'))
                         ],
-                      ))
+                      )),
+              const TextField(
+                decoration: InputDecoration(
+                    labelText: 'custom',
+                    prefixIcon: Icon(Icons.person),
+                    enabledBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.green)),
+                    focusedBorder: UnderlineInputBorder(
+                        borderSide: BorderSide(color: Colors.blue))),
+              ),
+              Theme(
+                  data: Theme.of(context).copyWith(
+                      hintColor: Colors.green,
+                      inputDecorationTheme: const InputDecorationTheme(
+                          labelStyle: TextStyle(color: Colors.black),
+                          hintStyle:
+                              TextStyle(color: Colors.grey, fontSize: 14))),
+                  child: Column(
+                    children: const [
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'username',
+                            hintText: 'input username',
+                            prefixIcon: Icon(Icons.person)),
+                      ),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'password',
+                            hintText: 'input password',
+                            prefixIcon: Icon(Icons.lock),
+                            hintStyle:
+                                TextStyle(color: Colors.green, fontSize: 10)),
+                      ),
+                    ],
+                  )),
+              Container(
+                child: const TextField(
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                      labelText: 'email',
+                      hintText: 'input email',
+                      prefixIcon: Icon(Icons.email),
+                      border: InputBorder.none),
+                ),
+                decoration: const BoxDecoration(
+                    border: Border(
+                        bottom: BorderSide(color: Colors.grey, width: 1))),
+              )
             ],
           ),
         ));
