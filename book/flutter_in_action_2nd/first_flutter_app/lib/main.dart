@@ -1,5 +1,5 @@
 import 'package:first_flutter_app/_2/route_manage.dart';
-import 'package:first_flutter_app/_3/image_and_icon.dart';
+import 'package:first_flutter_app/_3/switch_and_checkbox.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
         title: "Flutter",
         initialRoute: '/',
         routes: {
-          'new_page': (context) => NewRoute(),
-          '/': (context) => ImageAndIconPage()
+        'new_page': (context) => const NewRoute(),
+        '/': (context) => const SwitchAndCheckboxPage()
       },
         );
   }
