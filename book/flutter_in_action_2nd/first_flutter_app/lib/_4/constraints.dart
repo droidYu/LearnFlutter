@@ -27,6 +27,27 @@ class ConstraintsPage extends StatelessWidget {
             child: DecoratedBox(
               decoration: BoxDecoration(color: Colors.red),
             ),
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints(minWidth: 60, minHeight: 60),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 90, minHeight: 20),
+              child: const DecoratedBox(
+                decoration: BoxDecoration(color: Colors.red),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 90, minHeight: 20),
+              child: ConstrainedBox(
+                constraints: const BoxConstraints(minWidth: 60, minHeight: 60),
+                child: const DecoratedBox(
+                  decoration: BoxDecoration(color: Colors.red),
+                ),
+              ),
+            ),
           )
         ],
       ),
