@@ -10,6 +10,7 @@ import 'package:learn_flutter/_3/switch_and_checkbox.dart';
 import 'package:learn_flutter/_3/text.dart';
 import 'package:learn_flutter/_4/constraints.dart';
 import 'package:learn_flutter/_4/flex.dart';
+import 'package:learn_flutter/_4/flow.dart';
 import 'package:learn_flutter/_4/row_and_column.dart';
 
 void main() => runApp(MyApp());
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
     'constraints': (context) => const ConstraintsPage(),
     'row_and_column': (context) => const RowAndColumnPage(),
     'flex': (context) => const FlexPage(),
+    'flow': (context) => const FlowPage(),
   };
 
   @override
