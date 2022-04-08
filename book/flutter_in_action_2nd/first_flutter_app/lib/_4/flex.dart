@@ -23,10 +23,34 @@ class FlexPage extends StatelessWidget {
               Expanded(
                   flex: 2,
                   child: Container(
-                    height: 30,
+                    height: 50,
                     color: Colors.green,
                   ))
             ],
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20),
+            child: SizedBox(
+              height: 200,
+              child: Flex(
+                direction: Axis.vertical,
+                children: [
+                  Expanded(
+                      flex: 3,
+                      child: Container(
+                        color: Colors.red,
+                      )),
+                  const Spacer(
+                    flex: 1,
+                  ),
+                  Expanded(
+                      flex: 1,
+                      child: Container(
+                        color: Colors.green,
+                      ))
+                ],
+              ),
+            ),
           )
         ],
       ),
