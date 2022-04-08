@@ -20,6 +20,13 @@ class ConstraintsPage extends StatelessWidget {
                 decoration: BoxDecoration(color: Colors.red),
               ),
             ),
+          ),
+          const SizedBox(
+            width: 50,
+            height: 50,
+            child: DecoratedBox(
+              decoration: BoxDecoration(color: Colors.red),
+            ),
           )
         ],
       ),
