@@ -8,6 +8,18 @@ class ConstraintsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Constraints'),
+        actions: const [
+          UnconstrainedBox(
+            child: SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(
+                strokeWidth: 3,
+                valueColor: AlwaysStoppedAnimation(Colors.white70),
+              ),
+            ),
+          )
+        ],
       ),
       body: Column(
         children: [
@@ -38,7 +50,7 @@ class ConstraintsPage extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 16),
+            padding: const EdgeInsets.only(top: 8),
             child: ConstrainedBox(
               constraints: const BoxConstraints(minWidth: 90, minHeight: 20),
               child: ConstrainedBox(
@@ -46,6 +58,30 @@ class ConstraintsPage extends StatelessWidget {
                 child: const DecoratedBox(
                   decoration: BoxDecoration(color: Colors.red),
                 ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 8),
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minWidth: 60, minHeight: 100),
+              child: UnconstrainedBox(
+                child: ConstrainedBox(
+                  constraints:
+                      const BoxConstraints(minWidth: 90, minHeight: 20),
+                  child: const DecoratedBox(
+                    decoration: BoxDecoration(color: Colors.red),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          UnconstrainedBox(
+            alignment: Alignment.topLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(16),
+              child: Row(
+                children: [Text('xx' * 30)],
               ),
             ),
           )
