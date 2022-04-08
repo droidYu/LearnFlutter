@@ -7,6 +7,7 @@ import 'package:first_flutter_app/_3/input_and_form.dart';
 import 'package:first_flutter_app/_3/progress_indicator.dart';
 import 'package:first_flutter_app/_3/switch_and_checkbox.dart';
 import 'package:first_flutter_app/_3/text.dart';
+import 'package:first_flutter_app/_4/constraints.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -27,7 +28,8 @@ class MyApp extends StatelessWidget {
     'image': (context) => const ImageAndIconPage(),
     'switch': (context) => const SwitchAndCheckboxPage(),
     'input': (context) => const InputAndFormPage(),
-    'progress': (context) => const ProgressIndicatorPage()
+    'progress': (context) => const ProgressIndicatorPage(),
+    'constraints': (context) => const ConstraintsPage(),
   };
 
   @override
