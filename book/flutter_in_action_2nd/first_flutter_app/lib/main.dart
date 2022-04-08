@@ -9,13 +9,24 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-        title: "Flutter",
-        initialRoute: '/',
-        routes: {
+    return MaterialApp(
+      title: "Flutter",
+      initialRoute: '/',
+      routes: {
         'new_page': (context) => const NewRoute(),
-          '/': (context) => const ProgressIndicatorPage()
+        // '/': (context) => const StatelessWidgetRoute()
+        // '/': (context) => const ContextRoute()
+        // '/': (context) => const GetStateObjectRoute()
+        // '/': (context) => const CupertinoTestRoute()
+        // '/': (context) => const StateManageRoute()
+        // '/': (context) => const FirstRoute()
+        // '/': (context) => const TextPage()
+        // '/': (context) => const ButtonPage()
+        // '/': (context) => const ImageAndIconPage()
+        // '/': (context) => const SwitchAndCheckboxPage()
+        // '/': (context) => const InputAndFormPage()
+        '/': (context) => const ProgressIndicatorPage()
       },
-        );
+    );
   }
 }
