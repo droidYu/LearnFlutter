@@ -9,6 +9,7 @@ import 'package:learn_flutter/_3/progress_indicator.dart';
 import 'package:learn_flutter/_3/switch_and_checkbox.dart';
 import 'package:learn_flutter/_3/text.dart';
 import 'package:learn_flutter/_4/constraints.dart';
+import 'package:learn_flutter/_4/flex.dart';
 import 'package:learn_flutter/_4/row_and_column.dart';
 
 void main() => runApp(MyApp());
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
     'progress': (context) => const ProgressIndicatorPage(),
     'constraints': (context) => const ConstraintsPage(),
     'row_and_column': (context) => const RowAndColumnPage(),
+    'flex': (context) => const FlexPage(),
   };
 
   @override
