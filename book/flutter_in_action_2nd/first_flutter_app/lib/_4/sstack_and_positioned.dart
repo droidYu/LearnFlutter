@@ -13,7 +13,9 @@ class StackAndPositionedPage extends StatelessWidget {
         constraints: const BoxConstraints.expand(),
         child: Stack(
           alignment: Alignment.center,
+          fit: StackFit.expand,
           children: [
+            const Positioned(left: 18, child: Text('Hello')),
             Container(
               child: const Text(
                 'Hello world',
@@ -21,7 +23,6 @@ class StackAndPositionedPage extends StatelessWidget {
               ),
               color: Colors.red,
             ),
-            const Positioned(left: 18, child: Text('Hello')),
             const Positioned(
               child: Text('Haha'),
               top: 18,
