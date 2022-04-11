@@ -14,6 +14,7 @@ import 'package:learn_flutter/_4/flex.dart';
 import 'package:learn_flutter/_4/flow.dart';
 import 'package:learn_flutter/_4/row_and_column.dart';
 import 'package:learn_flutter/_4/sstack_and_positioned.dart';
+import 'package:learn_flutter/_5/padding.dart';
 
 void main() => runApp(MyApp());
 
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
     'flow': (context) => const FlowPage(),
     'stack': (context) => const StackAndPositionedPage(),
     'align': (context) => const AlignPage(),
+    'padding': (context) => const PaddingPage(),
   };
 
   @override
