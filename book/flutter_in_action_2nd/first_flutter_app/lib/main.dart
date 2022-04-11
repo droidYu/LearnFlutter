@@ -8,6 +8,7 @@ import 'package:learn_flutter/_3/input_and_form.dart';
 import 'package:learn_flutter/_3/progress_indicator.dart';
 import 'package:learn_flutter/_3/switch_and_checkbox.dart';
 import 'package:learn_flutter/_3/text.dart';
+import 'package:learn_flutter/_4/align.dart';
 import 'package:learn_flutter/_4/constraints.dart';
 import 'package:learn_flutter/_4/flex.dart';
 import 'package:learn_flutter/_4/flow.dart';
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
     'flex': (context) => const FlexPage(),
     'flow': (context) => const FlowPage(),
     'stack': (context) => const StackAndPositionedPage(),
+    'align': (context) => const AlignPage(),
   };
 
   @override
