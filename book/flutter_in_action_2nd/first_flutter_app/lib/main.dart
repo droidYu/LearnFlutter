@@ -16,6 +16,7 @@ import 'package:learn_flutter/_4/row_and_column.dart';
 import 'package:learn_flutter/_4/sstack_and_positioned.dart';
 import 'package:learn_flutter/_5/decorated_box.dart';
 import 'package:learn_flutter/_5/padding.dart';
+import 'package:learn_flutter/_5/transform.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
     'align': (context) => const AlignPage(),
     'padding': (context) => const PaddingPage(),
     'decorated_box': (context) => const DecoratedBoxPage(),
+    'transform': (context) => const TransformPage(),
   };
 
   @override
