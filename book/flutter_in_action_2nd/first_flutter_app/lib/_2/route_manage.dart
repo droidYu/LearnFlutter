@@ -40,6 +40,7 @@ class FirstRoute extends StatelessWidget {
   }
 }
 
+// ignore: must_be_immutable
 class SecondRoute extends StatelessWidget {
   SecondRoute({Key? key, required this.value}) : super(key: key);
 
@@ -74,7 +75,7 @@ class NewRoute extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('NewRoute'),),
+      appBar: AppBar(title: const Text('NewRoute'),),
       body: Center(
         child: Text('This is new route and value is :${ModalRoute.of(context)?.settings.arguments}'),
       ),
