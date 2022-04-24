@@ -1,4 +1,4 @@
-package com.droidyu.learn_flutter_redux
+package com.droidyu.learn_libraries
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.droidyu.learn_flutter_redux">
+    package="com.droidyu.learn_libraries">
    <application
-        android:label="learn_flutter_redux"
+        android:label="learn_libraries"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

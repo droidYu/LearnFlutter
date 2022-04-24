@@ -1,6 +1,6 @@
-# learn_flutter_redux
+# learn_libraries
 
-Learn flutter_redux
+Learn libraries
 
 ## Getting Started
 
