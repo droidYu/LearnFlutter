@@ -1,20 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
+import 'package:learn_libraries/flutter_redux/flutter_redux.dart';
+import 'package:learn_libraries/flutter_redux/reducer.dart';
 import 'package:redux/redux.dart';
-
-enum Actions { Add, Minus }
-
-int myReducer(int state, dynamic action) {
-  switch (action) {
-    case Actions.Add:
-      state += 1;
-      break;
-    case Actions.Minus:
-      state -= 1;
-      break;
-  }
-  return state;
-}
 
 void main() {
   final store = Store<int>(myReducer, initialState: 0);
@@ -30,41 +18,42 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return StoreProvider<int>(
         store: store,
-        child: MaterialApp(
-          title: 'Learn flutter_redux',
-          home: Scaffold(
-              appBar: AppBar(
-                title: const Text('Learn flutter_redux'),
-              ),
-              body: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    StoreConnector<int, int>(
-                      converter: (store) => store.state,
-                      builder: (context, count) {
-                        return Text(
-                          count.toString(),
-                          style: const TextStyle(fontSize: 48),
-                        );
-                      },
-                    ),
-                    StoreConnector<int, VoidCallback>(
-                      converter: (store) => () => store.dispatch(Actions.Add),
-                      builder: (context, callback) {
-                        return ElevatedButton(
-                            onPressed: callback, child: const Text('Add'));
-                      },
-                    ),
-                    StoreConnector<int, VoidCallback>(
-                        builder: (context, callback) => ElevatedButton(
-                            onPressed: callback, child: const Text('Minus')),
-                        converter: (store) =>
-                            () => store.dispatch(Actions.Minus))
-                  ],
+        child: const MaterialApp(
+            title: 'Learn Flutter Libraries', home: HomePage()));
+  }
+}
+
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+        appBar: AppBar(
+          title: const Text('Learn Flutter Libraries'),
+        ),
+        body: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ReduxPage()));
+                },
+                child: StoreConnector<int, int>(
+                  converter: (store) => store.state,
+                  builder: (context, count) {
+                    return Text(
+                      'flutter_redux  value:${count.toString()}',
+                    );
+                  },
                 ),
-              )),
+              )
+            ],
+          ),
         ));
   }
 }

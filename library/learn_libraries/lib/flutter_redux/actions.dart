@@ -1,0 +1,2 @@
+
+enum MyActions { Add, Minus }
