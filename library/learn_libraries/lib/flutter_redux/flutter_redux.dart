@@ -11,7 +11,7 @@ class ReduxPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Learn Flutter Libraries'),
+          title: const Text('Learn flutter_redux'),
         ),
         body: Center(
           child: Column(

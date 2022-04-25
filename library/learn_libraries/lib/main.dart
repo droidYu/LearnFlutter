@@ -8,18 +8,24 @@ void main() {
   final store = Store<int>(myReducer, initialState: 0);
   runApp(MyApp(store: store));
 }
-
+final routeName = [
+  'flutter_redux',
+];
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.store}) : super(key: key);
+   MyApp({Key? key, required this.store}) : super(key: key);
 
   final Store<int> store;
+
+
 
   @override
   Widget build(BuildContext context) {
     return StoreProvider<int>(
         store: store,
-        child: const MaterialApp(
-            title: 'Learn Flutter Libraries', home: HomePage()));
+        child: MaterialApp(
+            title: 'Learn Flutter Libraries',
+            routes: {routeName[0]: (_) => const ReduxPage()},
+            home: const HomePage()));
   }
 }
 
@@ -38,10 +44,7 @@ class HomePage extends StatelessWidget {
             children: [
               ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const ReduxPage()));
+                  Navigator.pushNamed(context, routeName[0]);
                 },
                 child: StoreConnector<int, int>(
                   converter: (store) => store.state,
