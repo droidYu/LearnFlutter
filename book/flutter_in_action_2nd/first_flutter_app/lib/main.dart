@@ -18,6 +18,7 @@ import 'package:learn_flutter/_5/container.dart';
 import 'package:learn_flutter/_5/decorated_box.dart';
 import 'package:learn_flutter/_5/padding.dart';
 import 'package:learn_flutter/_5/transform.dart';
+import 'package:learn_flutter/_9/animation.dart';
 
 void main() => runApp(MyApp());
 
@@ -25,29 +26,30 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   final routes = {
-    'new_page': (context) => const NewRoute(),
-    'widget': (context) => const StatelessWidgetRoute(),
-    'context': (context) => const ContextRoute(),
-    'state': (context) => const GetStateObjectRoute(),
-    'cupertino': (context) => const CupertinoTestRoute(),
-    'state_manage': (context) => const StateManageRoute(),
-    'route': (context) => const FirstRoute(),
-    'text': (context) => const TextPage(),
-    'button': (context) => const ButtonPage(),
-    'image': (context) => const ImageAndIconPage(),
-    'switch': (context) => const SwitchAndCheckboxPage(),
-    'input': (context) => const InputAndFormPage(),
-    'progress': (context) => const ProgressIndicatorPage(),
-    'constraints': (context) => const ConstraintsPage(),
-    'row_and_column': (context) => const RowAndColumnPage(),
-    'flex': (context) => const FlexPage(),
-    'flow': (context) => const FlowPage(),
-    'stack': (context) => const StackAndPositionedPage(),
-    'align': (context) => const AlignPage(),
-    'padding': (context) => const PaddingPage(),
-    'decorated_box': (context) => const DecoratedBoxPage(),
-    'transform': (context) => const TransformPage(),
+    'animation': (context) => const AnimationPage(),
     'container': (context) => const ContainerPage(),
+    'transform': (context) => const TransformPage(),
+    'decorated_box': (context) => const DecoratedBoxPage(),
+    'padding': (context) => const PaddingPage(),
+    'align': (context) => const AlignPage(),
+    'stack': (context) => const StackAndPositionedPage(),
+    'flow': (context) => const FlowPage(),
+    'flex': (context) => const FlexPage(),
+    'row_and_column': (context) => const RowAndColumnPage(),
+    'constraints': (context) => const ConstraintsPage(),
+    'progress': (context) => const ProgressIndicatorPage(),
+    'input': (context) => const InputAndFormPage(),
+    'switch': (context) => const SwitchAndCheckboxPage(),
+    'image': (context) => const ImageAndIconPage(),
+    'button': (context) => const ButtonPage(),
+    'text': (context) => const TextPage(),
+    'route': (context) => const FirstRoute(),
+    'state_manage': (context) => const StateManageRoute(),
+    'cupertino': (context) => const CupertinoTestRoute(),
+    'state': (context) => const GetStateObjectRoute(),
+    'context': (context) => const ContextRoute(),
+    'widget': (context) => const StatelessWidgetRoute(),
+    'new_page': (context) => const NewRoute(),
   };
 
   @override
