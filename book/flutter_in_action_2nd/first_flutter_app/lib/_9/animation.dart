@@ -17,7 +17,8 @@ class _AnimationPageState extends State<AnimationPage>
     super.initState();
     controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 1000));
-    animation = Tween(begin: 100.0, end: 300.0).animate(controller)
+    animation = CurvedAnimation(parent: controller, curve: Curves.bounceOut);
+    animation = Tween(begin: 100.0, end: 300.0).animate(animation)
       ..addListener(() {
         setState(() {});
       });
@@ -34,9 +35,7 @@ class _AnimationPageState extends State<AnimationPage>
         child: Container(
           width: animation.value,
           height: animation.value,
-          decoration: const BoxDecoration(
-            color: Colors.blue
-          ),
+          decoration: const BoxDecoration(color: Colors.blue),
         ),
       ),
     );
