@@ -19,6 +19,7 @@ import 'package:learn_flutter/_5/decorated_box.dart';
 import 'package:learn_flutter/_5/padding.dart';
 import 'package:learn_flutter/_5/transform.dart';
 import 'package:learn_flutter/_9/animation.dart';
+import 'package:learn_flutter/_9/hero.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   final routes = {
+    'hero_animation': (context) => const HeroAnimationPage(),
     'animation': (context) => const AnimationPage(),
     'container': (context) => const ContainerPage(),
     'transform': (context) => const TransformPage(),
