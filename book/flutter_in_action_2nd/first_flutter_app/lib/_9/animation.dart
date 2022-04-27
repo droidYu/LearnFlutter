@@ -11,6 +11,7 @@ class _AnimationPageState extends State<AnimationPage>
     with SingleTickerProviderStateMixin {
   late Animation<double> animation;
   late Animation<double> animation2;
+  late Animation<double> animation3;
   late AnimationController controller;
 
   @override
@@ -31,6 +32,14 @@ class _AnimationPageState extends State<AnimationPage>
     //   setState(() {});
     // });
 
+    animation3 = Tween(begin: 100.0, end: 300.0).animate(controller)
+      ..addStatusListener((status) {
+        if (status == AnimationStatus.completed) {
+          controller.reverse();
+        } else if (status == AnimationStatus.dismissed) {
+          controller.forward();
+        }
+      });
     controller.forward();
   }
 
@@ -77,7 +86,21 @@ class _AnimationPageState extends State<AnimationPage>
                       ),
                     ),
                   );
-                })
+                }),
+            const Padding(padding: EdgeInsets.all(16)),
+            Center(
+              child: Container(
+                width: animation3.value,
+                height: 20,
+                decoration: const BoxDecoration(color: Colors.blue),
+                child: const Center(
+                  child: Text(
+                    'AnimationStatus',
+                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  ),
+                ),
+              ),
+            )
           ],
         ));
   }
