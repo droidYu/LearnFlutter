@@ -28,16 +28,29 @@ class _AnimationPageState extends State<AnimationPage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Animation'),
-      ),
-      body: Center(
-        child: Container(
-          width: animation.value,
-          height: animation.value,
-          decoration: const BoxDecoration(color: Colors.blue),
+        appBar: AppBar(
+          title: const Text('Animation'),
         ),
+        body: AnimationContainer(
+          animation: animation,
+        ));
+  }
+}
+
+class AnimationContainer extends AnimatedWidget {
+  @override
+  Widget build(BuildContext context) {
+    final animation = listenable as Animation<double>;
+
+    return Center(
+      child: Container(
+        width: animation.value,
+        height: animation.value,
+        decoration: const BoxDecoration(color: Colors.blue),
       ),
     );
   }
+
+  const AnimationContainer({Key? key, required Animation animation})
+      : super(key: key, listenable: animation);
 }
