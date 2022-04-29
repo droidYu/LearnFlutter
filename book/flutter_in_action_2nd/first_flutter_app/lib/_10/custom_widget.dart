@@ -53,3 +53,52 @@ class GradientButton extends StatelessWidget {
     );
   }
 }
+
+class TurnBox extends StatefulWidget {
+  const TurnBox(
+      {Key? key, this.turns = .0, this.speed = 200, required this.child})
+      : super(key: key);
+
+  final double turns;
+  final int speed;
+  final Widget child;
+
+  @override
+  State<TurnBox> createState() => _TurnBoxState();
+}
+
+class _TurnBoxState extends State<TurnBox> with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+        vsync: this, lowerBound: -double.infinity, upperBound: double.infinity);
+    controller.value = widget.turns;
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(covariant TurnBox oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.turns != widget.turns) {
+      controller.animateTo(widget.turns,
+          duration: Duration(milliseconds: widget.speed),
+          curve: Curves.easeOut);
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return RotationTransition(
+      turns: controller,
+      child: widget.child,
+    );
+  }
+}

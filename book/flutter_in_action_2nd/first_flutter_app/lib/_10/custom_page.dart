@@ -2,8 +2,15 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/_10/custom_widget.dart';
 
-class CustomPage extends StatelessWidget {
+class CustomPage extends StatefulWidget {
   const CustomPage({Key? key}) : super(key: key);
+
+  @override
+  State<CustomPage> createState() => _CustomPageState();
+}
+
+class _CustomPageState extends State<CustomPage> {
+  double turns = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +39,36 @@ class CustomPage extends StatelessWidget {
             height: 50,
             onPressed: onTap,
           ),
+          TurnBox(
+            child: const Icon(
+              Icons.refresh,
+              size: 50,
+            ),
+            turns: turns,
+            speed: 500,
+          ),
+          TurnBox(
+            child: const Icon(
+              Icons.refresh,
+              size: 150,
+            ),
+            turns: turns,
+            speed: 1000,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  turns += .2;
+                });
+              },
+              child: const Text('顺时针旋转1/5圈')),
+          ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  turns -= .2;
+                });
+              },
+              child: const Text('逆时针旋转1/5圈'))
         ],
       ),
     );
