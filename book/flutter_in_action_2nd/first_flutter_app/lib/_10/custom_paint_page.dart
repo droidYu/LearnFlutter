@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 class CustomPaintPage extends StatelessWidget {
@@ -12,11 +13,17 @@ class CustomPaintPage extends StatelessWidget {
         title: const Text('CustomPaint'),
       ),
       body: Center(
-        child: CustomPaint(
-          size: const Size(300, 300),
-          painter: MyPainter(),
-        ),
-      ),
+          child: Column(
+        children: [
+          RepaintBoundary(
+            child: CustomPaint(
+              size: const Size(300, 300),
+              painter: MyPainter(),
+            ),
+          ),
+          ElevatedButton(onPressed: () {}, child: const Text('Refresh'))
+        ],
+      )),
     );
   }
 }
@@ -25,6 +32,9 @@ class MyPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var rect = Offset.zero & size;
+    if (kDebugMode) {
+      print('paint');
+    }
     drawChessboard(canvas, rect);
     drawPieces(canvas, rect);
   }
