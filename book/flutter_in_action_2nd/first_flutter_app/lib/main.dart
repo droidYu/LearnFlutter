@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:learn_flutter/_10/custom_page.dart';
+import 'package:learn_flutter/_10/custom_paint_page.dart';
 import 'package:learn_flutter/_2/route_manage.dart';
 import 'package:learn_flutter/_2/state_manage.dart';
 import 'package:learn_flutter/_2/widget.dart';
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
   MyApp({Key? key}) : super(key: key);
 
   final routes = {
+    'custom_paint': (context) => const CustomPaintPage(),
     'custom_widget': (context) => const CustomPage(),
     'hero_animation': (context) => const HeroAnimationPage(),
     'animation': (context) => const AnimationPage(),
